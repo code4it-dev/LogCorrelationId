@@ -26,7 +26,6 @@ namespace HotelsSystem
 
             app.UseAuthorization();
 
-
             app.MapControllers();
 
             app.Run();

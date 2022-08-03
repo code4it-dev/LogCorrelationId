@@ -3,15 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogCorrelationId", "LogCorrelationId\LogCorrelationId.csproj", "{66A252C8-8213-4633-882F-8831BC0EF9F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogCorrelationId", "LogCorrelationId\LogCorrelationId.csproj", "{66A252C8-8213-4633-882F-8831BC0EF9F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{7B7EB0A7-401E-4453-807C-0B3F6D5172F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightSystem", "FlightSystem\FlightSystem.csproj", "{67D9FB5A-3184-4C7C-8660-CC36D5907C8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightSystem", "FlightSystem\FlightSystem.csproj", "{67D9FB5A-3184-4C7C-8660-CC36D5907C8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelsSystem", "HotelsSystem\HotelsSystem.csproj", "{0EA498D1-23B0-4072-924A-5EFD1942006E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelsSystem", "HotelsSystem\HotelsSystem.csproj", "{0EA498D1-23B0-4072-924A-5EFD1942006E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRentalSystem", "CarRentalSystem\CarRentalSystem.csproj", "{FE284DF5-93DC-419F-9DD3-0D74ECB98C40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarRentalSystem", "CarRentalSystem\CarRentalSystem.csproj", "{FE284DF5-93DC-419F-9DD3-0D74ECB98C40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{66A252C8-8213-4633-882F-8831BC0EF9F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66A252C8-8213-4633-882F-8831BC0EF9F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66A252C8-8213-4633-882F-8831BC0EF9F8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7B7EB0A7-401E-4453-807C-0B3F6D5172F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7B7EB0A7-401E-4453-807C-0B3F6D5172F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7B7EB0A7-401E-4453-807C-0B3F6D5172F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7B7EB0A7-401E-4453-807C-0B3F6D5172F9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{67D9FB5A-3184-4C7C-8660-CC36D5907C8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{67D9FB5A-3184-4C7C-8660-CC36D5907C8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67D9FB5A-3184-4C7C-8660-CC36D5907C8F}.Release|Any CPU.ActiveCfg = Release|Any CPU

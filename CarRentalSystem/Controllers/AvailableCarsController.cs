@@ -1,3 +1,5 @@
+using CarRentalSystem.Models;
+using CarRentalSystem.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarRentalSystem.Controllers
@@ -6,26 +8,13 @@ namespace CarRentalSystem.Controllers
     [Route("[controller]")]
     public class AvailableCarsController : ControllerBase
     {
-        private static readonly Car[] AllCars = new[]
-        {
-        new Car("FIAT", "red"),
-        new Car("Tesla", "white"),
-        new Car("BMW", "black"),
-        new Car("Ferrari", "red"),
-        new Car("Toyota", "purple"),
-        new Car("FIAT", "purple"),
-        new Car("Tesla", "black"),
-        new Car("Ferrari", "red"),
-        new Car("FIAT", "black"),
-        new Car("BMW", ""),
-        new Car("Toyota", "red"),
-    };
-
         private readonly ILogger<AvailableCarsController> _logger;
+        private readonly ICarsService _carsService;
 
-        public AvailableCarsController(ILogger<AvailableCarsController> logger)
+        public AvailableCarsController(ILogger<AvailableCarsController> logger, ICarsService carsService)
         {
             _logger = logger;
+            _carsService = carsService;
         }
 
         [HttpGet()]
@@ -36,12 +25,7 @@ namespace CarRentalSystem.Controllers
                 _logger.LogWarning("StartDate cannot be greater than EndDate");
                 return BadRequest();
             }
-            var daysDiff = (endDate.DayOfYear - startDate.DayOfYear);
-            var requiredCarsNumber = Math.Max(1, AllCars.Length - daysDiff);
-
-            Random rd = new Random();
-
-            var cars = AllCars.OrderBy(_ => rd.Next()).Take(requiredCarsNumber);
+            var cars = _carsService.Get(DateOnly.FromDateTime(startDate), DateOnly.FromDateTime(endDate));
 
             if (!cars.Any())
             {
@@ -51,6 +35,4 @@ namespace CarRentalSystem.Controllers
             return Ok(cars);
         }
     }
-
-    public record Car(string Name, string Color);
 }

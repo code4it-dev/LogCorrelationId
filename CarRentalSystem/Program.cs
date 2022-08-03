@@ -1,3 +1,5 @@
+using CarRentalSystem.Services;
+
 namespace CarRentalSystem
 {
     public class Program
@@ -12,6 +14,7 @@ namespace CarRentalSystem
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddSingleton<ICarsService, CarsService>();
 
             var app = builder.Build();
 
@@ -25,7 +28,6 @@ namespace CarRentalSystem
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 

@@ -26,7 +26,6 @@ namespace LogCorrelationId
 
             app.UseAuthorization();
 
-
             app.MapControllers();
 
             app.Run();
