@@ -13,6 +13,16 @@ namespace LogCorrelationId
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddHttpClient("cars_system", c =>
+            {
+                c.BaseAddress = new Uri("https://localhost:7159/");
+            });
+
+            builder.Services.AddHttpClient("hotels_system", c =>
+            {
+                c.BaseAddress = new Uri("https://localhost:7163/");
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

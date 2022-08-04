@@ -1,3 +1,5 @@
+using HotelsSystem.Services;
+
 namespace HotelsSystem
 {
     public class Program
@@ -12,6 +14,7 @@ namespace HotelsSystem
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddSingleton<IHotelsService, HotelSearchService>();
 
             var app = builder.Build();
 

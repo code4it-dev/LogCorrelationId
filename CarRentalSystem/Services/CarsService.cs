@@ -22,11 +22,23 @@ namespace CarRentalSystem.Services
 
             List<Car> cars = new List<Car>();
 
+            _logger.LogInformation($"There are currently {AllCars.Count} cars in our system");
+
             foreach (var availabilty in AllAvailableCars)
             {
                 if (dateRange.All(date => availabilty.Availability.Contains(date)))
                     cars.Add(availabilty.Car);
             }
+
+            if (cars.Any())
+            {
+                _logger.LogInformation("We have found " + cars.Count + " cars for the date range {StartDate} - {EndDate}", start, end);
+            }
+            else
+            {
+                _logger.LogWarning("We haven't found cars for the specified date range. {StartDate} - {EndDate}", start, end);
+            }
+
             return cars;
         }
 
