@@ -1,3 +1,7 @@
+using Serilog;
+using Serilog.Events;
+using Serilog.Formatting.Compact;
+
 namespace LogCorrelationId
 {
     public class Program
@@ -12,6 +16,17 @@ namespace LogCorrelationId
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Host.UseSerilog((ctx, lc) => lc
+                .WriteTo.Console(new CompactJsonFormatter())
+                //.WriteTo.Seq("http://localhost:5341")
+                .MinimumLevel.Information()
+                .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
+                .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)
+                .Enrich.FromLogContext()
+                .Enrich.WithProperty("Application_name", nameof(LogCorrelationId))
+                .Enrich.WithCorrelationIdHeader("my-custom-correlation-id")
+              );
 
             builder.Services.AddHttpClient("cars_system", c =>
             {

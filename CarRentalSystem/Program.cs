@@ -1,4 +1,7 @@
 using CarRentalSystem.Services;
+using Serilog;
+using Serilog.Events;
+using Serilog.Formatting.Compact;
 
 namespace CarRentalSystem
 {
@@ -15,6 +18,17 @@ namespace CarRentalSystem
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddSingleton<ICarsService, CarsService>();
+
+            builder.Host.UseSerilog((ctx, lc) => lc
+                .WriteTo.Console(new CompactJsonFormatter())
+                //.WriteTo.Seq("http://localhost:5341")
+                .MinimumLevel.Information()
+                .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
+                .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)
+                .Enrich.FromLogContext()
+              .Enrich.WithProperty("Application_name", nameof(CarRentalSystem))
+              .Enrich.WithCorrelationIdHeader("my-custom-correlation-id")
+              );
 
             var app = builder.Build();
 
