@@ -18,10 +18,11 @@ namespace HotelsSystem
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddSingleton<IHotelsService, HotelSearchService>();
+            builder.Services.AddHttpContextAccessor();
 
             builder.Host.UseSerilog((ctx, lc) => lc
                 .WriteTo.Console(new CompactJsonFormatter())
-                //.WriteTo.Seq("http://localhost:5341")
+                .WriteTo.Seq("http://localhost:5341")
                 .MinimumLevel.Information()
                 .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
                 .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)
