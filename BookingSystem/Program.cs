@@ -2,7 +2,7 @@ using Serilog;
 using Serilog.Events;
 using Serilog.Formatting.Compact;
 
-namespace LogCorrelationId
+namespace BookingSystem
 {
     public class Program
     {
@@ -25,7 +25,7 @@ namespace LogCorrelationId
                 .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
                 .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)
                 .Enrich.FromLogContext()
-                .Enrich.WithProperty("Application_name", nameof(LogCorrelationId))
+                .Enrich.WithProperty("Application_name", nameof(BookingSystem))
                 .Enrich.WithCorrelationIdHeader("my-custom-correlation-id")
               );
 

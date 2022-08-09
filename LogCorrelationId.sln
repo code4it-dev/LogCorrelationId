@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogCorrelationId", "LogCorrelationId\LogCorrelationId.csproj", "{66A252C8-8213-4633-882F-8831BC0EF9F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingSystem", "BookingSystem\BookingSystem.csproj", "{66A252C8-8213-4633-882F-8831BC0EF9F8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelsSystem", "HotelsSystem\HotelsSystem.csproj", "{0EA498D1-23B0-4072-924A-5EFD1942006E}"
 EndProject

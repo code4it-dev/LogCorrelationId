@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace LogCorrelationId.Controllers
+namespace BookingSystem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
