@@ -16,7 +16,7 @@ namespace BookingSystem.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> FindBooking([FromQuery] DateTime startDate, [FromQuery] DateTime endDate)
+        public async Task<ActionResult<Booking>> FindBooking([FromQuery] DateTime startDate, [FromQuery] DateTime endDate)
         {
             if (startDate.Date > endDate.Date)
             {
